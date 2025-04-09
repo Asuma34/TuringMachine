@@ -16,9 +16,9 @@ struct State {
  
 struct Configuration {
   Configuration() = default;
-  Configuration(size_t id, std::string data, int mov) : data(data), id(id), move(mov) {}
+  Configuration(State* s, std::string data, int mov) : data(data), state(s), move(mov) {}
   std::string data; 
-  size_t id; 
+  State* state; 
   int move; 
 };
 
@@ -77,7 +77,7 @@ class Tape {
   void BackToStart();
   std::string Look();
   void Show() const;
-  void Start(Tape& tape, std::vector<State>& array, size_t id, size_t end);
+  void Start(Tape& tape, std::vector<State>& array, size_t id, size_t end); // not need?
   Node* head;
   Node* start;
 };
@@ -150,4 +150,5 @@ class TuringMachine {
   Tape tape;
   std::vector<State> states;
   std::map<State, size_t> dict_id;
+  std::vector<std::string> alphabet;
 };
