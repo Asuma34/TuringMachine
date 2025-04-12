@@ -35,6 +35,26 @@ class Tape {
     }
     head = start;
   }
+  Tape(const Tape& t) {
+    Node* new_node = new Node;
+    start = new_node;
+    head = new_node;
+    Node* head_false = new_node;
+    Node* node_t = t.start;
+    new_node->data = node_t->data;
+    node_t = node_t->next;
+    while (node_t != nullptr) {
+      Node* node = new Node;
+      if (t.head == node_t) {
+        head = node;
+      }
+      node->data = node_t->data;
+      head_false->next = node;
+      node->prev = head_false;
+      head_false = node;
+      node_t = node_t->next;
+    }
+  }
   ~Tape() {
     while (start != nullptr) {
       Node* old_start = start;
@@ -53,6 +73,7 @@ class Tape {
   void Right();
   void Left();
   void Set(std::string data);
+  void Put(std::string data);
   void BackToStart();
   std::string Look() const;
   void Show() const;
@@ -75,13 +96,18 @@ void Tape::Left() {
     Node* new_node = new Node;
     head->prev = new_node;
     new_node->next = head;
-    start = head;
+    start = head->prev;
   }
   head = head->prev;
 }
 
 void Tape::Set(std::string data) {
   head->data = data;
+}
+
+void Tape::Put(std::string data) {
+  Set(data);
+  Right();
 }
 
 void Tape::BackToStart() {

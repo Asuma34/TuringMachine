@@ -75,8 +75,8 @@ int main() {
   tape.Show();
   tape.Right();
   std::cout << "start: " << '\n';
-  tape.Start(tape, array, 0, 8);
-  tape.Show();
+  TuringMachine app(tape, array);
+  app.Start(array[0], array[8]);
 
   return 0;
 }
