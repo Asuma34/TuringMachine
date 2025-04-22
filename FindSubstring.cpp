@@ -8,38 +8,10 @@ int main() {
   std::vector<State> st;
   Tape tape(20, "#");
   tape.Show();
-  /*
-  // this example if you don't want to enter the number yourself
-  tape.Set("1");
-  tape.Right();
-  tape.Set("0");
-  tape.Right();
-  tape.Set("1");
-  tape.Right();
-  tape.Set("0");
-  tape.Right();
-  tape.Set("1");
-  tape.Right();
-  tape.Set("1");
-  tape.Right();
-  tape.Set("1");
-  tape.Right();
-  tape.Set("0");
-  tape.Right();
-  tape.Set("0");
-  tape.Right();
-  tape.Set("|");
-  tape.Right();
-  tape.Set("1");
-  tape.Right();
-  tape.Set("1");
-  tape.Right();
-  tape.Set("1");
-  tape.Right();
-  tape.BackToStart();*/
   int n1;
   int n2;
   int a;
+  std::cout << "everything needs to be written on different lines: \n";
   std::cout << "write the number of word in the alphabet: \n";
   std::cin >> a;
   std::vector<std::string> alp(a);
