@@ -5,7 +5,6 @@
 #include "Struct.hpp"
 
 int main() {
-  std::vector<State> st;
   Tape tape(20, "#");
   tape.Show();
   int n1;
